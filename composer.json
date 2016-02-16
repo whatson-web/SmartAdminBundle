@@ -20,9 +20,11 @@
         "php": ">=5.3.9",
         "symfony/symfony": "2.7.*"
     },
-"autoload": {
-"psr-0": { "WH\\SmartAdminBundle": "" }
-},
-"target-dir": "WH/SmartAdminBundle",
-"minimum-stability": "dev"
+    "autoload": {
+        "psr-0": {
+            "WH\\SmartAdminBundle": ""
+        }
+    },
+    "target-dir": "WH/SmartAdminBundle",
+    "minimum-stability": "dev"
 }
