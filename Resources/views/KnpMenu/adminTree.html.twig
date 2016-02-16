@@ -1,0 +1,46 @@
+{% block compressed_root %}
+    {% spaceless %}
+        {{ block('root') }}
+    {% endspaceless %}
+{% endblock %}
+
+{% block root %}
+    {% set listAttributes = item.childrenAttributes %}
+    {{ block('list') -}}
+    <div style="clear:both;"></div>
+{% endblock %}
+
+{% block list %}
+    {% if item.hasChildren and options.depth is not sameas(0) %}
+        <div class="dd">
+            <ol class="dd-list">
+                {{ block('children') }}
+            </ol>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block children %}
+    {% for item in item.children %}
+            {{ block('item') }}
+    {% endfor %}
+{% endblock %}
+
+{% block item %}
+    <li class="dd-item">
+        <div class="dd-handle">
+            <div class="pull-right">
+                {% if item.attributes.urlPublish is defined and item.attributes.iconePublish is defined %}
+                    <a href="{{ item.attributes.urlPublish }}" class="btn btn-success btn-xs"><i class="fa {{ item.attributes.iconePublish }}"></i></a>
+                {% endif %}
+                <a href="{{ item.attributes.urlUpdate }}" class="btn btn-primary btn-xs "><i class="fa fa-edit"></i></a>
+            </div>
+            <a href="{{ item.attributes.urlIndex }}">{{ item.attributes.name }}</a>
+            <small>
+                <br/>
+                <a href="{{ item.attributes.urlView }}" target="_blank" >{{ item.attributes.urlView }}</a>
+            </small>
+        </div>
+        {{ block('list') }}
+    </li>
+{% endblock %}

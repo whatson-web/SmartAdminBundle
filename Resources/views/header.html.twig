@@ -1,0 +1,48 @@
+<!-- #HEADER -->
+<header id="header">
+<div id="logo-group">
+
+    <!-- PLACE YOUR LOGO HERE -->
+    <span id="logo"> <img src="{{ asset('bundles/whadmin/images/logo-applati.svg') }}" alt="{{ project_name }}"> </span>
+    <!-- END LOGO PLACEHOLDER -->
+
+</div>
+
+<!-- #TOGGLE LAYOUT BUTTONS -->
+<!-- pulled right: nav area -->
+<div class="pull-right">
+
+    <!-- collapse menu button -->
+    <div id="hide-menu" class="btn-header pull-right">
+        <span> <a href="javascript:void(0);" data-action="toggleMenu" title="Collapse Menu"><i class="fa fa-reorder"></i></a> </span>
+    </div>
+    <!-- end collapse menu -->
+    <!-- #MOBILE -->
+    <!-- Top menu profile link : this shows only when top menu is active -->
+    <ul id="mobile-profile-img" class="header-dropdown-list hidden-xs padding-5">
+        <li class="">
+            <a href="#" class="dropdown-toggle no-margin userdropdown btn btn-default btn-sm" data-toggle="dropdown">
+                <i class="fa fa-user"></i> {{ app.user.name }}
+            </a>
+            <ul class="dropdown-menu pull-right">
+                <li>
+                    <a href="{{ path('whad_user_show', {'id' : app.user.id}) }}" class="padding-10 padding-top-0 padding-bottom-0"><i class="fa fa-user"></i> Profile</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="{{ path('whad_user_update', {'id' : app.user.id}) }}" class="padding-10 padding-top-0 padding-bottom-0"> <i class="fa fa-cog"></i> <u>P</u>aramètres</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="{{ path('fos_user_security_logout') }}" class="padding-10 padding-top-5 padding-bottom-5" data-logout-msg="Pour plus de sécurité, nous vous recommandons de fermer également votre navigateur"><i class="fa fa-sign-out fa-lg"></i> <strong><u>D</u>econnexion</strong></a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+
+</div>
+<!-- end pulled right: nav area -->
+
+</header>
+<!-- END HEADER -->

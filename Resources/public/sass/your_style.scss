@@ -1,0 +1,62 @@
+/*
+ * It is advised not to edit the smartadmin_production.css
+ * as this will override any changes you make in the 
+ * later versions of this theme. 
+ * 
+ * We advise that you use use this CSS to override 
+ * SmartAdmin styles. 
+ * 
+ * Rename the stylesheet to whatever your liking so it will stay
+ * unique to you with each update of SmartAdmin.
+ */
+
+/*
+ * INDEX
+ * 
+ * - HTML
+ * - BODY
+ * - CUSTOM STYLES
+ */
+
+body{font-family:"Open Sans",Arial,Helvetica,Sans-Serif;}
+
+#logo img {
+    width: 163px;
+}
+
+
+.block {
+    display: block;
+}
+
+.dateSelect select {
+    width: 30%;
+    display: inline-block;
+}
+
+.dateTimeSelect select {
+    width: 20%;
+    display: inline-block;
+}
+
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 34px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 34px;
+}
+
+.select2-container .select2-selection--single {
+    height: 34px;
+}
+
+.padded {
+    padding: 15px;
+}
+
+fieldset {
+    background: rgba(255,255,255,.9);
+}
+

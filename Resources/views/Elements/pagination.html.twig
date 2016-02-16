@@ -1,0 +1,38 @@
+<div class="dt-toolbar-footer">
+    <div class="col-sm-6 col-xs-12 hidden-xs">
+        <div class="dataTables_info" role="status" aria-live="polite">
+            Page
+            <span class="txt-color-darken">{{ pagination.page }}</span>
+            sur
+            <span class="txt-color-darken">{{ pagination.pages_count }}</span>
+            |
+            <span class="text-primary">{{ entities.count }}</span>
+            Résultats
+        </div>
+    </div>
+    <div class="col-sm-6 col-xs-12">
+        <div class="dataTables_paginate paging_simple_numbers">
+            <ul class="pagination pagination-sm">
+                {% if pagination.page == 1 %}
+                    <li class="paginate_button previous disabled"><a href="#">Suivant</a></li>
+                {% else %}
+                    <li class="paginate_button previous"><a href="{{ path(pagination.route, {'page': pagination.page + 1, 'max' : pagination.max})}}">Précedent</a></li>
+                {% endif %}
+                <!--<li class="paginate_button previous disabled"><a href="#">Précédent</a></li>-->
+                {# On utilise la fonction range(a, b) qui crée un tableau de valeurs entre a et b #}
+                {% for p in range(1, pagination.pages_count) %}
+                    <li class="paginate_button {% if p == pagination.page %}disabled{% endif %}">
+                        <a href="{{ path(pagination.route, {'page': p, 'max' : pagination.max}) }}">{{ p }}</a>
+                    </li>
+                {% endfor %}
+                {% if pagination.page == pagination.pages_count %}
+                    <li class="paginate_button next disabled"><a href="#">Suivant</a></li>
+                {% else %}
+                    <li class="paginate_button next"><a href="{{ path(pagination.route, {'page': pagination.page + 1, 'max' : pagination.max })}}">Suivant</a></li>
+                {% endif %}
+
+            </ul>
+
+        </div>
+    </div>
+</div>

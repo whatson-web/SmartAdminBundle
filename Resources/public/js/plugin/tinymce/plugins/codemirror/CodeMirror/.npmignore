@@ -1,0 +1,10 @@
+/node_modules
+/src/WH/AdminBundle/Resources/public/js/plugin/tinymce-bootstrap-plugin/tinymce/plugins/codemirror/CodeMirror-master/demo
+/src/WH/AdminBundle/Resources/public/js/plugin/tinymce/plugins/codemirror/CodeMirror/doc
+/test
+/test*.html
+/index.html
+/mode/*/*test.js
+/mode/*/*.html
+/mode/index.html
+.*

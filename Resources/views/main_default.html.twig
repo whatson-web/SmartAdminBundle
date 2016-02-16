@@ -1,0 +1,71 @@
+{% extends "WHAdminBundle::layout.html.twig" %}
+
+
+{% block main %}
+<!-- MAIN PANEL -->
+<div id="main" role="main">
+
+    <!-- RIBBON -->
+    <div id="ribbon">
+
+        <span class="ribbon-button-alignment">
+            <span id="refresh" class="btn btn-ribbon" data-action="resetWidgets" data-title="refresh"  rel="tooltip" data-placement="bottom" data-original-title="<i class='text-warning fa fa-warning'></i> Warning! This will reset all your widget settings." data-html="true">
+                <i class="fa fa-refresh"></i>
+            </span>
+        </span>
+
+        <!-- breadcrumb -->
+        <ol class="breadcrumb">{% block ariane %} <li>Home</li> {% endblock %}</ol>
+
+    </div>
+    <!-- END RIBBON -->
+
+
+    <!-- MAIN CONTENT -->
+    <div id="content">
+
+        <!-- row -->
+        <div class="row">
+
+            <!-- col -->
+            <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+                <h1 class="page-title txt-color-blueDark">
+
+                    {% block title %}
+                        <i class="fa-fw fa fa-home"></i>
+                        Page Header
+                        <span>> Subtitle</span>
+                    {% endblock %}
+
+                </h1>
+            </div>
+            <!-- end col -->
+
+            <!-- right side of the page with the sparkline graphs -->
+            <!-- col -->
+            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+                {% block title_right %}
+
+                {% endblock %}
+            </div>
+            <!-- end col -->
+
+        </div>
+        <!-- end row -->
+
+
+
+        {% block body %}
+
+
+        {% endblock %}
+
+
+
+    </div>
+    <!-- END MAIN CONTENT -->
+
+</div>
+<!-- END MAIN PANEL -->
+
+{% endblock %}

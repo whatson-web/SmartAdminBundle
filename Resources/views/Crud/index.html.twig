@@ -1,0 +1,85 @@
+{XXX% extends "WHCrmBundle::layoutAdmin.html.twig" %XXX}
+
+{XXX% block meta_title %XXX} {XXX{ parent() }XXX} - {{ entityName }} {XXX% endblock %XXX}
+
+{XXX% block ariane %XXX}
+    {XXX{ parent() }XXX}
+    <li><a href="{XXX{ path('{{ routeIndex }}') }XXX}">{{ entityName }}</a></li>
+{XXX% endblock %XXX}
+
+{XXX% block title_right %XXX}
+    <a href="{XXX{ path('{{ routeCreate }}') }XXX}" class="btn btn-success pull-right" {XXX{ Smart.modal() }XXX}><i class="fa fa-plus"></i> Créer {{ entityName }}</a>
+{XXX% endblock %XXX}
+
+{XXX% block subtitle %XXX}{{ entityName }}{XXX% endblock %XXX}
+
+{XXX% block center %XXX}
+
+
+    <div class="container">
+
+        <div class="well">
+
+            <h1>Gestion des {{ entityName }}</h1>
+
+            <p></p>
+
+        </div>
+
+        {XXX{ Smart.openTable('fa-list', 'List') }XXX}
+        <thead>
+        <tr>
+            <th></th>
+            <th>Nom </th>
+            <th>Slug </th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {XXX% for entity in entities %XXX}
+        <tr class="">
+            <td>
+                <a href="{XXX{ path('{{ routeView }}', { '{{ entityName }}': entity.id }) }XXX}" class="btn btn-xs btn-success"><i class="fa fa-eye"></i></a>
+                <a href="{XXX{ path('{{ routeUpdate }}', { '{{ entityName }}': entity.id }) }XXX}" class="btn btn-xs btn-primary" {XXX{ Smart.modal() }XXX}><i class="fa fa-edit"></i></a>
+                <a href="{XXX{ path('{{ routeDelete }}', { '{{ entityName }}': entity.id }) }XXX}" class="btn btn-xs btn-danger" {XXX{ Smart.confirm('Etes vous sûre de vouloir supprimer cette {{ entityName }} ? ') }XXX}><i class="fa fa-trash-o"></i></a>
+            </td>
+            <td>{XXX{ entity.name }XXX}</td>
+            <td>{XXX{ entity.slug }XXX}</td>
+        </tr>
+        {XXX% endfor %XXX}
+        </tbody>
+        {XXX{ Smart.closeTable() }XXX}
+
+        </div>
+
+    </div>
+
+
+{XXX% endblock %XXX}
+
+
+{XXX% block javascripts %XXX}{XXX{ parent() }XXX}
+    <script type="text/javascript" src="{XXX{ asset('bundles/whadmin/js/plugin/markdown/markdown.min.js') }XXX}"></script>
+{XXX% endblock %XXX}
+
+{XXX% block javascript %XXX}
+    {XXX{ parent() }XXX}
+    <script type="application/javascript">
+
+        var popupSuccess = function (data) {
+
+            if($.isPlainObject(data)) {
+
+                window.location = data.redirect;
+
+            }else{
+
+                $('#modal .modal-content').html(data);
+
+            }
+
+
+        }
+
+    </script>
+{XXX% endblock %XXX}

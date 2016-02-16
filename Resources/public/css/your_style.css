@@ -1,0 +1,62 @@
+body {
+    font-family: "Open Sans", Arial, Helvetica, Sans-Serif
+}
+
+#logo img {
+    width: 163px
+}
+
+.block {
+    display: block
+}
+
+.dateSelect select {
+    width: 30%;
+    display: inline-block
+}
+
+.dateTimeSelect > div {
+    display: inline-block;
+    width:50%;
+}
+
+.dateTimeSelect select {
+    width: 30%;
+    display: inline-block
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 34px
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    line-height: 34px
+}
+
+.select2-container .select2-selection--single {
+    height: 34px
+}
+
+.padded {
+    padding: 15px
+}
+
+fieldset {
+    background: rgba(255, 255, 255, 0.9)
+}
+
+.menu-on-top aside#left-panel nav>ul>li>a {
+    min-width: 90px;
+    text-align: center;
+}
+
+.menu-on-top nav ul ul li:hover>a:after, .menu-on-top nav>ul ul>li a:after, .menu-on-top nav>ul ul>li a:hover:after, .menu-on-top nav>ul>li>a:after {
+    right: 50%;
+}
+ul.ui-autocomplete {
+    z-index: 2147483647 !important;
+}
+
+dd {
+    margin-bottom: 15px;
+}
