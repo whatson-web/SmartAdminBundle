@@ -1,9 +1,10 @@
 <?php
 
-namespace WH\SmartAdminBundle;
+    namespace WH\SmartAdminBundle;
 
-use Symfony\Component\HttpKernel\Bundle\Bundle;
+    use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class WHSmartAdminBundle extends Bundle
-{
-}
+    class WHSmartAdminBundle extends Bundle
+    {
+
+    }
