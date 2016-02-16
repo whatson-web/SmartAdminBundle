@@ -1,5 +1,5 @@
 {
-    "name": "wh/smartAdmin-bundle",
+    "name": "wh/smart-admin-bundle",
     "type": "symfony-bundle",
     "description": "Symfony WHSmartAdminBundle",
     "keywords": ["Bckend application", "xml", "json", "api", "web service"],
