@@ -1,4 +1,4 @@
-{% extends "WHAdminBundle::layout.html.twig" %}
+{% extends "WHSmartAdminBundle::layout.html.twig" %}
 
 
 {% block main %}
@@ -15,7 +15,10 @@
         </span>
 
         <!-- breadcrumb -->
-        <ol class="breadcrumb">{% block ariane %} <li>Home</li> {% endblock %}</ol>
+        <ol class="breadcrumb">
+            <li><a href="{{ path('admin_home') }}">Home</a></li>
+            {% block ariane %}{% endblock %}
+        </ol>
 
     </div>
     <!-- END RIBBON -->

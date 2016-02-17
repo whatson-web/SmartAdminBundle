@@ -3,7 +3,7 @@
 <div id="logo-group">
 
     <!-- PLACE YOUR LOGO HERE -->
-    <span id="logo"> <img src="{{ asset('bundles/whadmin/images/logo-applati.svg') }}" alt="{{ project_name }}"> </span>
+    <span id="logo"> <img src="{{ asset('bundles/whsmartadmin/images/logo-applati.svg') }}" alt="{{ project_name }}"> </span>
     <!-- END LOGO PLACEHOLDER -->
 
 </div>
@@ -26,11 +26,11 @@
             </a>
             <ul class="dropdown-menu pull-right">
                 <li>
-                    <a href="{{ path('whad_user_show', {'id' : app.user.id}) }}" class="padding-10 padding-top-0 padding-bottom-0"><i class="fa fa-user"></i> Profile</a>
+                    <a href="{{ path('admin_user_show', {'User' : app.user.id}) }}" class="padding-10 padding-top-0 padding-bottom-0"><i class="fa fa-user"></i> Profile</a>
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href="{{ path('whad_user_update', {'id' : app.user.id}) }}" class="padding-10 padding-top-0 padding-bottom-0"> <i class="fa fa-cog"></i> <u>P</u>aramètres</a>
+                    <a href="{{ path('admin_user_update', {'User' : app.user.id}) }}" class="padding-10 padding-top-0 padding-bottom-0"> <i class="fa fa-cog"></i> <u>P</u>aramètres</a>
                 </li>
                 <li class="divider"></li>
                 <li>

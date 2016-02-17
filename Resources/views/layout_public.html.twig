@@ -23,11 +23,11 @@
     {# app/Resources/views/layout.html.twig #}
 
     {% stylesheets
-    '@WHAdminBundle/Resources/public/css/smartadmin-production-plugins.min.css'
-    '@WHAdminBundle/Resources/public/css/smartadmin-production.min.css'
-    '@WHAdminBundle/Resources/public/css/smartadmin-skins.min.css'
-    '@WHAdminBundle/Resources/public/js/plugin/select2-4/css/select2.min.css'
-    '@WHAdminBundle/Resources/public/css/your_style.css'
+    '@WHSmartAdminBundle/Resources/public/css/smartadmin-production-plugins.min.css'
+    '@WHSmartAdminBundle/Resources/public/css/smartadmin-production.min.css'
+    '@WHSmartAdminBundle/Resources/public/css/smartadmin-skins.min.css'
+    '@WHSmartAdminBundle/Resources/public/js/plugin/select2-4/css/select2.min.css'
+    '@WHSmartAdminBundle/Resources/public/css/your_style.css'
     %}
     <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
     {% endstylesheets %}
@@ -36,7 +36,7 @@
 
 
     <!-- FAVICONS -->
-    <link rel="shortcut icon" href="{{ asset('@WHAdminBundle/img/favicon/favicon.ico') }}" type="image/x-icon">
+    <link rel="shortcut icon" href="{{ asset('@WHSmartAdminBundle/img/favicon/favicon.ico') }}" type="image/x-icon">
     <link rel="icon" href="{{ asset('bundles/admin/img/favicon/favicon.ico') }}" type="image/x-icon">
 
     <!-- GOOGLE FONT -->
@@ -61,12 +61,12 @@
 
 <body class="animated fadeInDown">
 
-{% import 'WHAdminBundle:Form:macros.html.twig' as Smart %}
+{% import 'WHSmartAdminBundle:Form:macros.html.twig' as Smart %}
 
 <header id="header">
 
     <div id="logo-group">
-        <span id="logo"> <img src="{{ asset('bundles/whadmin/images/logo-applati.svg') }}" alt="Whatson web Crm"> </span>
+        <span id="logo"> <img src="{{ asset('bundles/whsmartadmin/images/logo-applati.svg') }}" alt="Whatson web Crm"> </span>
     </div>
 
 </header>
@@ -90,14 +90,14 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script>
     if (!window.jQuery) {
-        document.write('<script src="{{ asset('bundles/whadmin/js/libs/jquery-2.1.1.min.js') }}"><\/script>');
+        document.write('<script src="{{ asset('bundles/whsmartadmin/js/libs/jquery-2.1.1.min.js') }}"><\/script>');
     }
 </script>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
 <script>
     if (!window.jQuery.ui) {
-        document.write('<script src="{{ asset('bundles/whadmin/js/libs/jquery-ui-1.10.3.min.js') }}"><\/script>');
+        document.write('<script src="{{ asset('bundles/whsmartadmin/js/libs/jquery-ui-1.10.3.min.js') }}"><\/script>');
     }
 </script>
 
@@ -106,33 +106,33 @@
 <![endif]-->
 
 {% javascripts
-'@WHAdminBundle/Resources/public/js/app.config.js'
-'@WHAdminBundle/Resources/public/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js'
-'@WHAdminBundle/Resources/public/js/bootstrap/bootstrap.min.js'
-'@WHAdminBundle/Resources/public/js/notification/SmartNotification.min.js'
-'@WHAdminBundle/Resources/public/js/smartwidgets/jarvis.widget.min.js'
-'@WHAdminBundle/Resources/public/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js'
-'@WHAdminBundle/Resources/public/js/plugin/sparkline/jquery.sparkline.min.js'
-'@WHAdminBundle/Resources/public/js/plugin/jquery-validate/jquery.validate.min.js'
-'@WHAdminBundle/Resources/public/js/plugin/masked-input/jquery.maskedinput.min.js'
-'@WHAdminBundle/Resources/public/js/plugin/select2/select2.min.js'
-'@WHAdminBundle/Resources/public/js/plugin/bootstrap-slider/bootstrap-slider.min.js'
-'@WHAdminBundle/Resources/public/js/plugin/msie-fix/jquery.mb.browser.min.js'
-'@WHAdminBundle/Resources/public/js/plugin/fastclick/fastclick.min.js'
-'@WHAdminBundle/Resources/public/js/app.min.js'
-'@WHAdminBundle/Resources/public/js/speech/voicecommand.min.js'
-'@WHAdminBundle/Resources/public/js/smart-chat-ui/smart.chat.ui.min.js'
-'@WHAdminBundle/Resources/public/js/smart-chat-ui/smart.chat.manager.min.js'
-'@WHAdminBundle/Resources/public/js/plugin/flot/jquery.flot.cust.min.js'
-'@WHAdminBundle/Resources/public/js/plugin/flot/jquery.flot.resize.min.js'
-'@WHAdminBundle/Resources/public/js/plugin/flot/jquery.flot.time.min.js'
-'@WHAdminBundle/Resources/public/js/plugin/flot/jquery.flot.tooltip.min.js'
-'@WHAdminBundle/Resources/public/js/plugin/moment/moment.min.js'
-'@WHAdminBundle/Resources/public/js/plugin/fullcalendar/jquery.fullcalendar.min.js'
+'@WHSmartAdminBundle/Resources/public/js/app.config.js'
+'@WHSmartAdminBundle/Resources/public/js/plugin/jquery-touch/jquery.ui.touch-punch.min.js'
+'@WHSmartAdminBundle/Resources/public/js/bootstrap/bootstrap.min.js'
+'@WHSmartAdminBundle/Resources/public/js/notification/SmartNotification.min.js'
+'@WHSmartAdminBundle/Resources/public/js/smartwidgets/jarvis.widget.min.js'
+'@WHSmartAdminBundle/Resources/public/js/plugin/easy-pie-chart/jquery.easy-pie-chart.min.js'
+'@WHSmartAdminBundle/Resources/public/js/plugin/sparkline/jquery.sparkline.min.js'
+'@WHSmartAdminBundle/Resources/public/js/plugin/jquery-validate/jquery.validate.min.js'
+'@WHSmartAdminBundle/Resources/public/js/plugin/masked-input/jquery.maskedinput.min.js'
+'@WHSmartAdminBundle/Resources/public/js/plugin/select2/select2.min.js'
+'@WHSmartAdminBundle/Resources/public/js/plugin/bootstrap-slider/bootstrap-slider.min.js'
+'@WHSmartAdminBundle/Resources/public/js/plugin/msie-fix/jquery.mb.browser.min.js'
+'@WHSmartAdminBundle/Resources/public/js/plugin/fastclick/fastclick.min.js'
+'@WHSmartAdminBundle/Resources/public/js/app.min.js'
+'@WHSmartAdminBundle/Resources/public/js/speech/voicecommand.min.js'
+'@WHSmartAdminBundle/Resources/public/js/smart-chat-ui/smart.chat.ui.min.js'
+'@WHSmartAdminBundle/Resources/public/js/smart-chat-ui/smart.chat.manager.min.js'
+'@WHSmartAdminBundle/Resources/public/js/plugin/flot/jquery.flot.cust.min.js'
+'@WHSmartAdminBundle/Resources/public/js/plugin/flot/jquery.flot.resize.min.js'
+'@WHSmartAdminBundle/Resources/public/js/plugin/flot/jquery.flot.time.min.js'
+'@WHSmartAdminBundle/Resources/public/js/plugin/flot/jquery.flot.tooltip.min.js'
+'@WHSmartAdminBundle/Resources/public/js/plugin/moment/moment.min.js'
+'@WHSmartAdminBundle/Resources/public/js/plugin/fullcalendar/jquery.fullcalendar.min.js'
 %}
 <script>
     var TWIG = {};
-    TWIG.path_sound    = "{{ asset('bundles/whadmin/sound/') }}";
+    TWIG.path_sound    = "{{ asset('bundles/whsmartadmin/sound/') }}";
 </script>
 <script type="text/javascript" src="{{ asset_url }}"></script>
 {% endjavascripts %}

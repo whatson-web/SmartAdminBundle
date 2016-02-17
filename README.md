@@ -8,7 +8,7 @@ Le template utilisé est smart admin.
     {
         $bundles = array(
 
-            new WH\SmartAdminBundle\SmartAdminBundle(), //Gestion de l'interface admin
+            new WH\SmartAdminBundle\WHSmartAdminBundle(),
 
         );
 
