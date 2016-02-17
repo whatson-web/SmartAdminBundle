@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
     {% endstylesheets %}
 
-    <link rel="stylesheet" href="{{ asset('bundles/whadmin/css/your_style.css') }}" type="text/css" />
+    <link rel="stylesheet" href="{{ asset('bundles/whsmartadmin/css/your_style.css') }}" type="text/css" />
 
 
     {% block stylesheets %}{% endblock %}
@@ -63,14 +63,14 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>
         if (!window.jQuery) {
-            document.write('<script src="{{ asset('bundles/whadmin/js/libs/jquery-2.1.1.min.js') }}"><\/script>');
+            document.write('<script src="{{ asset('bundles/whsmartadmin/js/libs/jquery-2.1.1.min.js') }}"><\/script>');
         }
     </script>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
     <script>
         if (!window.jQuery.ui) {
-            document.write('<script src="{{ asset('bundles/whadmin/js/libs/jquery-ui-1.10.3.min.js') }}"><\/script>');
+            document.write('<script src="{{ asset('bundles/whsmartadmin/js/libs/jquery-ui-1.10.3.min.js') }}"><\/script>');
         }
     </script>
 
@@ -96,7 +96,7 @@
     <span> <!-- User image size is adjusted inside CSS, it should stay as it -->
 
         <a href="javascript:void(0);" id="show-shortcut" data-action="toggleShortcut">
-            <img src="{{ asset('bundles/whadmin/images/avatars/sunny.png') }}" alt="me" class="online"/>
+            <img src="{{ asset('bundles/whsmartadmin/images/avatars/sunny.png') }}" alt="me" class="online"/>
             <span>
                 {{ app.user.name }}
             </span>

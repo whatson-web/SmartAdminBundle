@@ -59,7 +59,7 @@
             </div>
 
             {% if pagination %}
-                {% include('WHAdminBundle:Elements:pagination.html.twig') %}
+                {% include('WHSmartAdminBundle:Elements:pagination.html.twig') %}
             {% endif %}
         </div>
 
@@ -102,5 +102,77 @@
 
 {% macro modal(size) %}
     data-target="#modal-{% if size %}{{ size }}{% else %}mm{% endif %}" data-toggle="modal"
+{% endmacro %}
+
+
+{% macro modalSubmitBtn(form, opt = {}) %}
+
+    {% set optDef = {'btnSuccess' : 'Creer', 'btnCancel' : 'Annuler'}  %}
+    {% set opt = optDef|merge(opt) %}
+
+    <div class="modal-footer">
+
+        <button type="button" class="btn btn-danger pull-left" data-dismiss="modal">
+            {{ opt.btnCancel }}
+        </button>
+
+        <button type="submit" class="btn btn-primary" name="submited" value="">
+            {{ opt.btnSuccess }}
+        </button>
+
+    </div>
+{% endmacro %}
+
+{% macro modalSubmitAjax(form) %}
+    <script>
+        $(form).submit(function() {
+
+            var txt = $('button[type=submit]', $(form)).html();
+            $('button[type=submit]', $(form)).attr('disabled', 'disabled');
+            $('button[type=submit]', $(form)).html('please wait..');
+
+            $.ajax({
+                type    : $(this).attr('method'),
+                url     : $(this).attr('action'),
+                data    : $(this).serialize(), // serializes the form's elements.
+                success: function(data)
+                {
+
+                    popupSuccess(data);
+
+                    $('button[type=submit]', $(form)).attr('disabled', '');
+                    $('button[type=submit]', $(form)).html(txt);
+
+
+                }
+            });
+
+            return false; // avoid to execute the actual submit of the form.
+        });
+    </script>
+{% endmacro %}
+
+
+{% macro modalSuccess() %}
+    <script type="application/javascript">
+
+        {# Todo: error form #}
+
+        var popupSuccess = function (data) {
+
+            if ($.isPlainObject(data)) {
+
+                window.location = data.redirect;
+
+            } else {
+
+                $('#modal .modal-content').html(data);
+
+            }
+
+
+        }
+
+    </script>
 {% endmacro %}
 
