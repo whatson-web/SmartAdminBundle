@@ -116,15 +116,22 @@
             {{ opt.btnCancel }}
         </button>
 
+        {% if opt.btnSuccess %}
         <button type="submit" class="btn btn-primary" name="submited" value="">
             {{ opt.btnSuccess }}
         </button>
+        {% endif %}
 
     </div>
 {% endmacro %}
 
 {% macro modalSubmitAjax(form) %}
     <script>
+
+        var form = $(".modal form");
+
+        $('.modal .select2').select2();
+
         $(form).submit(function() {
 
             var txt = $('button[type=submit]', $(form)).html();
