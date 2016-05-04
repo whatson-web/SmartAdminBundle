@@ -1,147 +1,151 @@
 <?php
-namespace {{NameSpace}}\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+namespace {{NameSpace}}\Controller\Backend;
 
-use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 use {{ NameSpace }}\Entity\{{ EntityName }};
-use {{ NameSpace }}\Form\{{ EntityName }}Type;
+use {{ NameSpace }}\Form\Backend\{{ EntityName }}Type;
 
-class {{Controller}}Controller extends Controller
+/**
+ * @Route("/admin/{{ EntityName | lower }}")
+ */
+class {{ EntityName }}Controller extends Controller
 {
 
 
-    public function indexAction()
-    {
-
-        $em = $this->getDoctrine()->getEntityManager();
-
-        $entities = $em->getRepository('{{Entity}}')->findAll();
-
-
-        return $this->render('{{Entity}}:admin/index.html.twig', array(
-                'entities' => $entities
-            )
-        );
-
-    }
-
-    public function createAction(Request $request)
-    {
-
-        $entity = new {{EntityName}}();
-
-        $form = $this->createForm(new {{EntityName}}Type(), $entity);
-
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
-
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($entity);
-
-            $em->flush();
-
-            $request->getSession()->getFlashBag()->add('success', '{{EntityName}} ajouté');
-
-            $response = new JsonResponse();
-
-            $response->setData(array(
-                    'valid'     => true,
-                    'redirect'  => $this->generateUrl('{{EntityRouteIndex}}')
-                ));
-
-            return $response;
-
-        }
-
-        return $this->render('{{Entity}}:admin/create.html.twig', array(
-                'form' => $form->createView()
-            )
-        );
-    }
-
     /**
-     * UPDATE
-     *
-     * @param ${{EntityName}}
+     * @Route("/", name="{{ Routes.index }}")
+     * @Template("{{ bundleName }}:Backend:{{ EntityName }}/index.html.twig")
      * @param Request $request
-     * @ParamConverter("{{EntityName}}", class="{{Entity}}")
+     * @return array
      */
-    public function updateAction(${{EntityName}}, Request $request)
-    {
-
-        $form = $this->createForm(new {{EntityName}}Type(), ${{EntityName}});
-
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
-
-            $em = $this->getDoctrine()->getManager();
-            $em->persist(${{EntityName}});
-
-            $em->flush();
-
-            $request->getSession()->getFlashBag()->add('success', '{{EntityName}} modifiée');
-
-            $response = new JsonResponse();
-
-            $response->setData(array(
-                    'valid'     => true,
-                    'redirect'  => $this->generateUrl('{{EntityRouteIndex}}')
-                ));
-
-            return $response;
-
-        }
-
-        return $this->render('{{Entity}}:admin/update.html.twig', array(
-                'form' => $form->createView(),
-                '{{EntityName}}' => ${{EntityName}}
-            )
-        );
-
-    }
-
-    /**
-     * VIEW
-     *
-     * @param ${{EntityName}}
-     * @ParamConverter("{{EntityName}}", class="{{ Entity }}")
-    */
-    public function viewAction(${{EntityName}}, Request $request)
-    {
-
-        return $this->render('{{Entity}}:admin/view.html.twig', array(
-                '{{EntityName}}' => ${{EntityName}}
-            )
-        );
-
-    }
-
-
-    /**
-     * SUPPRIMER
-     *
-     * @param Request $request
-     * @ParamConverter("{{EntityName}}", class="{{Entity}}")
-     */
-    public function deleteAction(${{EntityName}}, Request $request)
+    public function indexAction(Request $request)
     {
 
         $em = $this->getDoctrine()->getManager();
 
-        $em->remove(${{EntityName}});
-        $em->flush();
+        $entities = $em->getRepository('{{ Entity }}')->findAll();
 
-        $request->getSession()->getFlashBag()->add('success', '{{EntityName}} supprimée');
+        return array(
+            'entities'      => $entities
+         );
 
-        return $this->redirect($request->headers->get('referer'));
+    }
+
+    /**
+     * @Route("/create", name="{{ Routes.create }}")
+     * @Template("{{ bundleName }}:Backend:{{ EntityName }}/create.html.twig")
+     * @param Request $request
+     * @return array
+     */
+    public function createAction(Request $request) {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $entity = new {{ EntityName }}();
+
+        $form = $this->createForm(new {{ EntityName }}Type(), $entity);
+
+        $form->handleRequest($request);
+
+
+        if ($form->isValid()) {
+
+            $em->persist($entity);
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('success', '');
+
+            $response = new JsonResponse();
+
+            $response->setData(array(
+                    'valid'     => true,
+                    'redirect'  => $this->generateUrl('{{ Routes.index }}')
+                ));
+
+            return $response;
+
+        }
+
+        return array(
+            'form'   => $form->createView()
+        );
 
 
     }
+
+    /**
+     * @Route("/{{ '{'~EntityName ~'}' }}/update", name="{{ Routes.update }}")
+     * @Template("{{ bundleName }}:Backend:{{ EntityName }}/update.html.twig")
+     * @ParamConverter("{{EntityName}}", class="{{Entity}}")
+     * @param Request ${{ EntityName }}
+     * @param Request $request
+     * @return array
+     */
+    public function updateAction(${{ EntityName }}, Request $request) {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $form = $this->createForm(new {{ EntityName }}Type(), ${{ EntityName }});
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+
+            $em->persist(${{ EntityName }});
+            $em->flush();
+
+            $request->getSession()->getFlashBag()->add('success', '');
+
+
+            $response = new JsonResponse();
+
+            $response->setData(array(
+                    'valid'     => true,
+                    'redirect'  => $this->generateUrl('{{ Routes.index }}')
+                ));
+
+            return $response;
+
+        }
+
+
+        return array(
+            'form'   => $form->createView(),
+            '{{ EntityName }}' => ${{ EntityName }}
+        );
+
+
+    }
+
+
+    /**
+     * @Route("/{{ '{'~EntityName~'}' }}/delete", name="{{ Routes.delete }}")
+     * @Template("{{ bundleName }}:Backend:{{ EntityName }}/delete.html.twig")
+     * @ParamConverter("{{EntityName}}", class="{{Entity}}")
+     * @param Request ${{ EntityName }}
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function deleteAction(${{ EntityName }}, Request $request)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $em->remove(${{ EntityName }});
+        $em->flush();
+        $request->getSession()->getFlashBag()->add('success', '');
+
+        return $this->redirect($this->generateUrl('{{ Routes.index }}'));
+
+
+    }
+
 
 }

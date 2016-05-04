@@ -1,12 +1,12 @@
 {XXX% extends "WHAdminBundle::popup.html.twig" %XXX}
 
-{XXX% form_theme form 'WHAdminBundle:Form:bootstrap.html.twig' %XXX}
+{XXX% form_theme form 'bootstrap_3_layout.html.twig' %XXX}
 
 {XXX% block title %XXX} modifier un {{ entityName }} {XXX% endblock %XXX}
 
 {XXX% block body %XXX}
 
-    {XXX{ form_start(form, {'action': path('{{ routeUpdate }}', {'{{ entityName }}' : {{ entityName }}.id}), 'method': 'POST'}) }XXX}
+    {XXX{ form_start(form, {'action': path('{{ Routes.update }}', {'{{ entityName }}' : {{ entityName }}.id}), 'method': 'POST'}) }XXX}
 
     <div class="padded">
 

@@ -1,16 +1,16 @@
-{XXX% extends "WHAdminBundle::popup.html.twig" %XXX}
+{XXX% extends "WHSmartAdminBundle::popup.html.twig" %XXX}
 
-{XXX% form_theme form 'WHAdminBundle:Form:bootstrap.html.twig' %XXX}
+{XXX% form_theme form 'bootstrap_3_layout.html.twig' %XXX}
 
 {XXX% block title %XXX} Créer {XXX% endblock %XXX}
 
 {XXX% block body %XXX}
 
-    {XXX{ form_start(form, {'action': path('{{ routeCreate }}'), 'method': 'POST'}) }XXX}
+    {XXX{ form_start(form, {'action': path('{{ Routes.create }}'), 'method': 'POST'}) }XXX}
 
     <div class="padded">
 
-        {XXX% include('{{ entity }}:admin/form.html.twig') %XXX}
+        {XXX% include('{{ bundleName }}:Backend:{{ entityName }}/form.html.twig') %XXX}
 
     </div>
 
