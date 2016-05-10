@@ -1,4 +1,4 @@
-{XXX% extends "WHAdminBundle::popup.html.twig" %XXX}
+{XXX% extends "WHSmartAdminBundle::popup.html.twig" %XXX}
 
 {XXX% form_theme form 'bootstrap_3_layout.html.twig' %XXX}
 
@@ -10,7 +10,7 @@
 
     <div class="padded">
 
-        {XXX% include('{{ entity }}:admin/form.html.twig') %XXX}
+        {XXX% include('{{ bundleName }}:Backend:{{ entityName }}/form.html.twig') %XXX}
 
     </div>
 
